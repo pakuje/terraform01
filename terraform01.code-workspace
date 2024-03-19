@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../terraform02"
+		},
+		{
+			"name": "terraform01",
+			"path": "terraform01"
+		}
+	],
+	"settings": {}
+}
