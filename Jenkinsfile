@@ -14,8 +14,8 @@ pipeline {
     stages{
         stage('Git Checkout') {
            steps{
-            git credentialsId: 'pakuje', url: 'https://github.com/pakuje/terraform.git'
-            //git credentialsId: 'pakuje', url: 'https://github.com/pakuje/terraform01.git'
+            //git credentialsId: 'pakuje', url: 'https://github.com/pakuje/terraform.git'
+            git credentialsId: 'test12', url: 'https://github.com/pakuje/terraform01.git'
             }
         }
         
@@ -23,7 +23,7 @@ pipeline {
             
             steps {                    
                     withCredentials([azureServicePrincipal(
-                    credentialsId: 'd038d860-990d-4356-a52c-881b2d1e6ecc',
+                    credentialsId: 'e1a3f676-5898-48b0-9234-7db83196c546',
                     subscriptionIdVariable: 'ARM_SUBSCRIPTION_ID',
                     clientIdVariable: 'ARM_CLIENT_ID',
                     clientSecretVariable: 'ARM_CLIENT_SECRET',
