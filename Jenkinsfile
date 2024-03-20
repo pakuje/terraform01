@@ -23,7 +23,7 @@ pipeline {
             
             steps {                    
                     withCredentials([azureServicePrincipal(
-                    credentialsId: 'e1a3f676-5898-48b0-9234-7db83196c546',
+                    credentialsId: 'd038d860-990d-4356-a52c-881b2d1e6ecc',
                     subscriptionIdVariable: 'ARM_SUBSCRIPTION_ID',
                     clientIdVariable: 'ARM_CLIENT_ID',
                     clientSecretVariable: 'ARM_CLIENT_SECRET',
