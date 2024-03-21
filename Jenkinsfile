@@ -14,7 +14,7 @@ pipeline {
         
         stage('github-clone') {
             steps {
-                git branch: 'BE', credentialsId: 'pakuje', url: 'https://github.com/pakuje/terraform01.git'
+                git branch: 'main', credentialsId: 'pakuje', url: 'https://github.com/pakuje/terraform01.git'
             }
         }
         
