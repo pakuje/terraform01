@@ -30,9 +30,9 @@ pipeline {
                    clientSecretVariable: 'ARM_CLIENT_SECRET',
                    tenantIdVariable: 'ARM_TENANT_ID'
                 )]) {
-                    sh """
+                    bat """
                     echo "Initialising Terraform"
-                    terraform init -backend-config="access_key=$ARM_ACCESS_KEY" --backend-config="env/backend.tfvars"
+                    terraform init
                     """
                 }
                
