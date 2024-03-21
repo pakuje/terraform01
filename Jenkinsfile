@@ -30,14 +30,10 @@ pipeline {
                    clientSecretVariable: 'ARM_CLIENT_SECRET',
                    tenantIdVariable: 'ARM_TENANT_ID'
                 )]) {
-                    withCredentials([string(
-                        credentialsId: 'sp_terraform',
-                        variable: 'ARM_ACCESS_KEY'
-                    )]) {
-                        sh """
-                        echo "Initialising Terraform"
-                        terraform init -backend-config="access_key=$ARM_ACCESS_KEY" --backend-config="env/backend.tfvars"
-                        """
+                    sh """
+                    echo "Initialising Terraform"
+                    terraform init -backend-config="access_key=$ARM_ACCESS_KEY" --backend-config="env/backend.tfvars"
+                    """
                     }
                
                                 
