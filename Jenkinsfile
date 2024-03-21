@@ -10,6 +10,18 @@ pipeline {
         TF_IN_AUTOMATION = "true"
         PATH = "$TF_HOME:$PATH"
     }
+    stages {
+        
+        stage('github-clone') {
+            steps {
+                git branch: 'BE', credentialsId: 'git', url: 'https://github.com/pakuje/terraform01.git'
+            }
+        }
+        
+   		// stage...
+   	}
+
+    /*
     stages{
         stage('Git Checkout') {
            steps{
@@ -39,4 +51,6 @@ pipeline {
             }
             
     }
+    
+*/
 }
