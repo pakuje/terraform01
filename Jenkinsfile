@@ -14,43 +14,33 @@ pipeline {
         
         stage('github-clone') {
             steps {
-                git branch: 'BE', credentialsId: 'git', url: 'https://github.com/pakuje/terraform01.git'
+                git branch: 'main', credentialsId: 'pakuje', url: 'https://github.com/pakuje/terraform01.git'
             }
         }
         
    		// stage...
-   	}
-
-    /*
-    stages{
-        stage('Git Checkout') {
-           steps{
-            //git credentialsId: 'pakuje', url: 'https://github.com/pakuje/terraform.git'
-            git credentialsId: 'pakuje', url: 'https://github.com/pakuje/terraform01.git'
-            }
-        }        
-         stage('Terraform Init'){
+   	
+     
+        stage('Terraform Init'){
             
-            steps {                    
-                    withCredentials([azureServicePrincipal(
-                    credentialsId: 'sp_terraform',
-                    subscriptionIdVariable: 'ARM_SUBSCRIPTION_ID',
-                    clientIdVariable: 'ARM_CLIENT_ID',
-                    clientSecretVariable: 'ARM_CLIENT_SECRET',
-                    tenantIdVariable: 'ARM_TENANT_ID'
-                ), string(credentialsId: 'access_key', variable: 'ARM_ACCESS_KEY')]) {
+           steps {                    
+                   withCredentials([azureServicePrincipal(
+                   credentialsId: 'sp_terraform',
+                   subscriptionIdVariable: 'ARM_SUBSCRIPTION_ID',
+                   clientIdVariable: 'ARM_CLIENT_ID',
+                   clientSecretVariable: 'ARM_CLIENT_SECRET',
+                   tenantIdVariable: 'ARM_TENANT_ID'
+               ), string(credentialsId: 'access_key', variable: 'ARM_ACCESS_KEY')]) {
                         
-                        sh """
+                    sh """
                                 
-                        echo "Initialising Terraform"
-                        terraform init -backend-config="access_key=$ARM_ACCESS_KEY" --backend-config="env/backend.tfvars"
-                        """
-                           }
-                    
-             }
+                    echo "Initialising Terraform"
+                    terraform init -backend-config="access_key=$ARM_ACCESS_KEY" --backend-config="env/backend.tfvars"
+                    """
+                }
             }
-            
+        }
     }
-    
-*/
+            
 }
+    
