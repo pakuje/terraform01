@@ -21,8 +21,7 @@ pipeline {
    		// stage...
    	
      
-        stage('Terraform Init'){
-            
+        stage('Terraform Init'){            
            steps {                    
                    withCredentials([azureServicePrincipal(
                    credentialsId: 'sp_terraform',
@@ -30,13 +29,19 @@ pipeline {
                    clientIdVariable: 'ARM_CLIENT_ID',
                    clientSecretVariable: 'ARM_CLIENT_SECRET',
                    tenantIdVariable: 'ARM_TENANT_ID'
-               ), string(credentialsId: 'sp_terraform', variable: 'ARM_ACCESS_KEY')]) {
-                        
-                    sh """
+                )]) {
+                    withCredentials([string(
+                        credentialsId: 'sp_terraform',
+                        variable: 'ARM_ACCESS_KEY'
+                    )]) {
+                        sh """
+                        echo "Initialising Terraform"
+                        terraform init -backend-config="access_key=$ARM_ACCESS_KEY" --backend-config="env/backend.tfvars"
+                        """
+                    }
+               
                                 
-                    echo "Initialising Terraform"
-                    terraform init -backend-config="access_key=$ARM_ACCESS_KEY" --backend-config="env/backend.tfvars"
-                    """
+               
                 }
             }
         }
