@@ -14,7 +14,7 @@ pipeline {
         stage('Git Checkout') {
            steps{
             //git credentialsId: 'pakuje', url: 'https://github.com/pakuje/terraform.git'
-            git credentialsId: 'test23', url: 'https://github.com/pakuje/terraform01.git'
+            git credentialsId: 'git', url: 'https://github.com/pakuje/terraform01.git'
             }
         }        
          stage('Terraform Init'){
