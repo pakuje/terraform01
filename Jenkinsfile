@@ -34,7 +34,7 @@ pipeline {
                     echo "Initialising Terraform"
                     terraform init
                     """
-                }                                              
+                }                                             
               
             }
         }
