@@ -17,8 +17,13 @@ pipeline {
                 git branch: 'main', credentialsId: 'pakuje', url: 'https://github.com/pakuje/terraform01.git'
             }
         }
+<<<<<<< HEAD
         
    		// stage... 
+=======
+         
+   		// stage...
+>>>>>>> c4dc5fc5f7fe7812a91a95df045752f6938b13de
    	
      
         stage('Terraform Init'){            
