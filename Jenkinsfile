@@ -16,7 +16,7 @@ pipeline {
             steps {
                 git branch: 'main', credentialsId: 'pakuje', url: 'https://github.com/pakuje/terraform01.git'
             }
-        }  
+        }      
 <<<<<<< HEAD
         
    		// stage... 
